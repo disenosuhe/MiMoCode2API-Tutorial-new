@@ -16,7 +16,7 @@
 
 ## 一、项目简介
 
-> MiMoCode 里面有免费模型，但是没有提供 API。我们通过 **反向代理** 的方式，将网页端能力封装成 **OpenAI 兼容的 `/v1/chat/completions` 接口**，方便接入任何支持 OpenAI 协议的客户端（如 NextChat、ChatBox、LobeChat、Cursor 等）。
+> MiMoCode 里面有免费模型，但是没有提供 API。我们通过 **反向代理** 的方式，将能力封装成 **OpenAI 兼容的 `/v1/chat/completions` 接口**，方便接入任何支持 OpenAI 协议的客户端（如 NextChat、ChatBox、LobeChat、Cursor 等）。
 
 - **项目地址**：[github.com/Sliverkiss/mimocode2api](https://github.com/Sliverkiss/mimocode2api)
 - **部署方式**：推荐使用 **Linux + Docker** 部署，国内无法直连 GitHub 的用户可使用加速或代理
